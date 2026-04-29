@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: rgb(49, 43, 43);
+    width: 300px;
+    height: auto;
+    border: 2px solid;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.expression , .answer{
+    height: 40px;
+    background-color: aqua;
+    margin: 0 10px;
+}
+
+.operands-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 10px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.choice {
+    padding: 15px;
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 0;
+    background: transparent;
+    font: inherit;
+}
+
+.choice:hover {
+    background-color: rgb(203, 203, 203);
+}
+
+.choice:focus-visible {
+    outline: 2px solid rgb(49, 43, 43);
+    outline-offset: 2px;
+}
