@@ -25,7 +25,6 @@ main {
 
 .expression , .answer{
     height: 40px;
-    background-color: aqua;
     margin: 0 10px;
     font-size: 20px;
     text-align: end;
