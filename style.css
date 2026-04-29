@@ -13,8 +13,7 @@ main {
 
 .container {
     background-color: rgb(49, 43, 43);
-    width: 300px;
-    height: auto;
+    width: 350px;
     border: 2px solid;
     border-radius: 15px;
     display: flex;
@@ -23,10 +22,17 @@ main {
     padding-top: 20px;
 }
 
+.expression {
+    font-size: 20px;
+}
+
+.answer {
+    font-size: 30px;
+}
+
 .expression , .answer{
     height: 40px;
     margin: 0 10px;
-    font-size: 20px;
     text-align: end;
     padding: 10px;
     color: white;
@@ -58,14 +64,9 @@ main {
     border-radius: 10px;
     border: 0;
     background: transparent;
-    font: inherit;
 }
 
 .choice:hover {
     background-color: rgb(203, 203, 203);
 }
 
-.choice:focus-visible {
-    outline: 2px solid rgb(49, 43, 43);
-    outline-offset: 2px;
-}

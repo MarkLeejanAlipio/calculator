@@ -28,6 +28,8 @@ let firstNum = '';
 let operator = '';
 let secNum = '';
 let expressionHistory = '';
+
+// Pick the right math function based on the active operator.
 function operate(currentOperator, a, b) {
     if (currentOperator === '+') {
         return add(a, b);
@@ -42,6 +44,7 @@ function operate(currentOperator, a, b) {
     return null;
 }
 
+// Clear both the saved values and the two display areas.
 function resetCalculator() {
     firstNum = '';
     operator = '';
@@ -51,6 +54,7 @@ function resetCalculator() {
     answer.textContent = '';
 }
 
+// Delete from right to left: second number, then operator, then first number.
 function deleteLastEntry() {
     if (expressionHistory) {
         resetCalculator();
@@ -70,6 +74,7 @@ function deleteLastEntry() {
     renderDisplay();
 }
 
+// Show either the live expression being typed or the last solved expression.
 function renderDisplay() {
     if (expressionHistory) {
         expression.textContent = expressionHistory;
@@ -79,14 +84,16 @@ function renderDisplay() {
     expression.textContent = `${firstNum} ${operator} ${secNum}`;
 }
 
+// Round number results a bit so floating-point decimals stay readable.
 function formatResult(result) {
-    if (typeof result === 'number' && Number.isFinite(result)) {
+    if (typeof result === 'number') {
         return Number(result.toFixed(10)).toString();
     }
 
     return result;
 }
 
+// Solve the current expression, show the result, and save the full expression.
 function calculateResult() {
     if (!firstNum || !operator || !secNum) {
         return;
@@ -112,6 +119,7 @@ function calculateResult() {
     renderDisplay();
 }
 
+// Add digits to the current side of the expression and guard decimal input.
 function handleNumber(value) {
     if (expressionHistory) {
         resetCalculator();
@@ -140,6 +148,7 @@ function handleNumber(value) {
     renderDisplay();
 }
 
+// Save the chosen operator, or replace it if the user changes their mind.
 function handleOperator(value) {
     if (!firstNum) {
         return;
@@ -169,6 +178,7 @@ function handleOperator(value) {
     renderDisplay();
 }
 
+// Convert the current number into a percentage by dividing it by 100.
 function handlePercent() {
     if (expressionHistory) {
         expressionHistory = '';
@@ -186,6 +196,7 @@ function handlePercent() {
     renderDisplay();
 }
 
+// Listen to every calculator button and send it to the right handler.
 function updateVar() {
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
