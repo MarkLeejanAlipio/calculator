@@ -43,6 +43,18 @@ function operate(operator, a, b) {
 function updateNum(value) {
     expressionHistory = '';
 
+    const currentNumber = operator ? secNum : firstNum;
+
+    if (value === '.') {
+        if (currentNumber.includes('.')) {
+            return;
+        }
+
+        if (currentNumber === '') {
+            value = '0.';
+        }
+    }
+
     if (!operator) {
         firstNum += value;
     } else {
