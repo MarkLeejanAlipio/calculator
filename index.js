@@ -68,3 +68,12 @@ function renderDisplay() {
         expression.textContent = `${firstNum} ${operator} ${secNum}`;
     }
 }
+
+// Calculate 
+function calculate(operator, a, b) {
+    expressionHistory = `${a} ${operator} ${b}`;
+    let result = operate(operator, +a, +b);
+    answer.textContent = result;
+
+    renderDisplay()
+}
