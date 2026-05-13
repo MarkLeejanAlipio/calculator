@@ -100,3 +100,32 @@ function del() {
 
     renderDisplay();
 }
+
+// Event Listener
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const value = button.textContent;
+
+        if (button.classList.contains('number')) {
+            updateNum(value);
+            return;
+        }
+
+        if (value === 'Clear') {
+            clear();
+            return;
+        }
+
+        if (value === 'Del') {
+            del();
+            return;
+        }
+
+        if (value === '=') {
+            calculate(operator, firstNum, secNum);
+            return;
+        }
+
+        updateOperator(value);
+    });
+});
