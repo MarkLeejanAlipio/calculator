@@ -84,6 +84,15 @@ function renderDisplay() {
     }
 }
 
+// Format result so it doesn't become too big
+function formatResult(result) {
+    if (typeof result === 'number') {
+        return Number(result.toFixed(10)).toString();
+    }
+
+    return result;
+}
+
 // Calculate 
 function calculate(operator, a, b ) {
     if (!a || !operator || !b) return;
@@ -95,9 +104,10 @@ function calculate(operator, a, b ) {
         answer.textContent = result;
         return;
     }
-    answer.textContent = result;
+    let formattedResult = formatResult(result)
+    answer.textContent = formattedResult;
 
-    firstNum = result;
+    firstNum = formattedResult;
     operator = '';
     secNum = '';
 
