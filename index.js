@@ -41,6 +41,8 @@ function operate(operator, a, b) {
 
 // Update Number when a number button is clicked
 function updateNum(value) {
+    expressionHistory = '';
+
     if (!operator) {
         firstNum += value;
     } else {
@@ -56,6 +58,7 @@ function updateOperator(value) {
         return;
     }
 
+    expressionHistory = '';
     operator = value;
     renderDisplay()
 }
@@ -70,10 +73,16 @@ function renderDisplay() {
 }
 
 // Calculate 
-function calculate(operator, a, b) {
+function calculate(operator, a, b ) {
+    if (!a || !operator || !b) return;
+
     expressionHistory = `${a} ${operator} ${b}`;
     let result = operate(operator, +a, +b);
     answer.textContent = result;
+
+    firstNum = result;
+    operator = '';
+    secNum = '';
 
     renderDisplay()
 }
