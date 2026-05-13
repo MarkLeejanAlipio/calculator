@@ -24,3 +24,17 @@ function division(a, b) {
     if (b === 0) return 'Cannot divide by 0';
     return a / b;
 }
+
+// Operate Function
+function operate(operator, a, b) {
+    switch(operator) {
+        case '+':
+            return add(a, b);
+        case '-':
+            return sub(a, b);
+        case 'x':
+            return multiply(a, b);
+        case '/': 
+            return division(a, b);
+    }
+}
