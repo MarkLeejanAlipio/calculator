@@ -38,3 +38,33 @@ function operate(operator, a, b) {
             return division(a, b);
     }
 }
+
+// Update Number when a number button is clicked
+function updateNum(value) {
+    if (!operator) {
+        firstNum += value;
+    } else {
+        secNum += value;
+    }
+
+    renderDisplay()
+}
+
+// Update Operator 
+function updateOperator(value) {
+    if (!firstNum) {
+        return;
+    }
+
+    operator = value;
+    renderDisplay()
+}
+
+// Render Display
+function renderDisplay() {
+    if (expressionHistory) {
+        expression.textContent = expressionHistory;
+    } else {
+        expression.textContent = `${firstNum} ${operator} ${secNum}`;
+    }
+}
