@@ -41,6 +41,11 @@ function operate(operator, a, b) {
 
 // Update Number when a number button is clicked
 function updateNum(value) {
+    if (expressionHistory && !operator) {
+        firstNum = '';
+        answer.textContent = '';
+    }
+
     expressionHistory = '';
 
     const currentNumber = operator ? secNum : firstNum;
@@ -113,7 +118,7 @@ function handlePercent() {
 
 // Calculate 
 function calculate(operator, a, b ) {
-    if (!a || !operator || !b) return;
+    if (a === '' || operator === '' || b === '') return;
 
     expressionHistory = `${a} ${operator} ${b}`;
     let result = operate(operator, +a, +b);
@@ -144,7 +149,11 @@ function clear() {
 
 // Delete last entry
 function del() {
-    if (expressionHistory) clear();
+    if (expressionHistory) {
+        clear();
+        return;
+    }
+
     if (secNum) {
         secNum = secNum.slice(0, -1);
     } else if (!secNum && operator) {
@@ -178,6 +187,11 @@ buttons.forEach(button => {
 
         if (value === '=') {
             calculate(operator, firstNum, secNum);
+            return;
+        }
+
+        if (value === '%') {
+            handlePercent();
             return;
         }
 
