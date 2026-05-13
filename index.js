@@ -77,3 +77,14 @@ function calculate(operator, a, b) {
 
     renderDisplay()
 }
+
+// Clear
+function clear() {
+    firstNum = '';
+    operator = '';
+    secNum = '';
+    expressionHistory = '';
+    expression.textContent = '';
+    answer.textContent = '';
+}
+
