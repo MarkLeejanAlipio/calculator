@@ -90,6 +90,7 @@ function clear() {
 
 // Delete last entry
 function del() {
+    if (expressionHistory) clear();
     if (secNum) {
         secNum = secNum.slice(0, -1);
     } else if (!secNum && operator) {
