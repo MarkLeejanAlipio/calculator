@@ -93,6 +93,24 @@ function formatResult(result) {
     return result;
 }
 
+// Handle the percent
+function handlePercent() {
+    if (expressionHistory) {
+        expressionHistory = '';
+    }
+
+    if (secNum) {
+        secNum = formatResult(Number(secNum) / 100);
+    } else if (firstNum) {
+        firstNum = formatResult(Number(firstNum) / 100);
+    } else {
+        return;
+    }
+
+    answer.textContent = '';
+    renderDisplay();
+}
+
 // Calculate 
 function calculate(operator, a, b ) {
     if (!a || !operator || !b) return;
