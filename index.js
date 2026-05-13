@@ -88,3 +88,15 @@ function clear() {
     answer.textContent = '';
 }
 
+// Delete last entry
+function del() {
+    if (secNum) {
+        secNum = secNum.slice(0, -1);
+    } else if (!secNum && operator) {
+        operator = '';
+    } else {
+        firstNum = firstNum.slice(0, -1);
+    }
+
+    renderDisplay();
+}
