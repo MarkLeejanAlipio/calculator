@@ -90,6 +90,11 @@ function calculate(operator, a, b ) {
 
     expressionHistory = `${a} ${operator} ${b}`;
     let result = operate(operator, +a, +b);
+    if (result === 'Cannot divide by 0') {
+        clear();
+        answer.textContent = result;
+        return;
+    }
     answer.textContent = result;
 
     firstNum = result;
